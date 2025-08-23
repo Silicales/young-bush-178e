@@ -1,16 +1,165 @@
 ---
-title: "Third post"
-description: "Lorem ipsum dolor sit amet"
+title: "Cloud Computing và Microservices: Kiến trúc hiện đại"
+description: "Tìm hiểu về cloud computing, microservices architecture và cách xây dựng hệ thống scalable"
 pubDate: "Jul 22 2022"
 heroImage: "/blog-placeholder-2.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+Cloud Computing và Microservices đã trở thành nền tảng của kiến trúc phần mềm hiện đại. Trong bài viết này, chúng ta sẽ khám phá cách xây dựng hệ thống scalable và resilient.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+## Cloud Computing là gì?
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+Cloud Computing là việc cung cấp các dịch vụ máy tính qua internet, bao gồm:
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+- **IaaS (Infrastructure as a Service)**: AWS EC2, Azure VM, Google Compute Engine
+- **PaaS (Platform as a Service)**: Heroku, AWS Elastic Beanstalk, Google App Engine
+- **SaaS (Software as a Service)**: Salesforce, Google Workspace, Microsoft 365
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+## Microservices Architecture
+
+Microservices là kiến trúc chia nhỏ ứng dụng thành các service độc lập:
+
+### Ưu điểm:
+- **Scalability**: Có thể scale từng service riêng biệt
+- **Flexibility**: Sử dụng công nghệ khác nhau cho từng service
+- **Resilience**: Lỗi ở một service không ảnh hưởng toàn bộ hệ thống
+- **Team autonomy**: Các team có thể phát triển độc lập
+
+### Nhược điểm:
+- **Complexity**: Quản lý nhiều service phức tạp hơn
+- **Network latency**: Giao tiếp giữa các service qua network
+- **Data consistency**: Khó đảm bảo tính nhất quán dữ liệu
+
+## Docker và Containerization
+
+Docker giúp đóng gói ứng dụng và dependencies:
+
+```dockerfile
+# Dockerfile example
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+```
+
+## Kubernetes và Orchestration
+
+Kubernetes giúp quản lý container ở quy mô lớn:
+
+```yaml
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: myapp:latest
+        ports:
+        - containerPort: 3000
+```
+
+## Cloud Providers
+
+### AWS (Amazon Web Services)
+- **EC2**: Virtual machines
+- **Lambda**: Serverless functions
+- **S3**: Object storage
+- **RDS**: Managed databases
+- **ECS/EKS**: Container orchestration
+
+### Azure (Microsoft)
+- **Virtual Machines**: Cloud VMs
+- **Functions**: Serverless computing
+- **Blob Storage**: Object storage
+- **SQL Database**: Managed SQL
+- **AKS**: Kubernetes service
+
+### Google Cloud Platform
+- **Compute Engine**: VMs
+- **Cloud Functions**: Serverless
+- **Cloud Storage**: Object storage
+- **Cloud SQL**: Managed databases
+- **GKE**: Kubernetes engine
+
+## Best Practices
+
+### 1. Security
+- Sử dụng IAM (Identity and Access Management)
+- Mã hóa dữ liệu ở rest và in transit
+- Regular security audits
+- Network segmentation
+
+### 2. Monitoring và Logging
+- Centralized logging (ELK Stack, Fluentd)
+- Application monitoring (Prometheus, Grafana)
+- Distributed tracing (Jaeger, Zipkin)
+- Alerting systems
+
+### 3. CI/CD Pipeline
+```yaml
+# GitHub Actions example
+name: Deploy to Cloud
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and push Docker image
+      run: |
+        docker build -t myapp .
+        docker push myapp
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f k8s/
+```
+
+## Serverless Computing
+
+Serverless cho phép chạy code mà không cần quản lý server:
+
+```javascript
+// AWS Lambda function
+exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
+```
+
+## Kết luận
+
+Cloud Computing và Microservices đang định hình tương lai của phát triển phần mềm. Việc nắm vững những công nghệ này sẽ giúp bạn xây dựng hệ thống hiện đại, scalable và resilient.

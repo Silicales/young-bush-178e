@@ -3,48 +3,368 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+// Lấy 3 bài viết gần đây nhất
+const posts = await getCollection('blog');
+const recentPosts = posts
+	.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+	.slice(0, 3);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- Hero Section -->
+			<section class="hero-section">
+				<div class="container">
+					<h1>🚀 Chào mừng đến với Tech Blog</h1>
+					<p class="hero-description">
+						Nơi chia sẻ kiến thức về lập trình, công nghệ và phát triển phần mềm. 
+						Khám phá những xu hướng công nghệ mới nhất và học hỏi từ những kinh nghiệm thực tế.
+					</p>
+					<div class="hero-stats">
+						<div class="stat">
+							<span class="stat-number">5+</span>
+							<span class="stat-label">Bài viết</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">3+</span>
+							<span class="stat-label">Chủ đề</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">100%</span>
+							<span class="stat-label">Kiến thức thực tế</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Technology Introduction -->
+			<section class="tech-intro">
+				<div class="container">
+					<h2>💻 Về Công Nghệ</h2>
+					<div class="tech-grid">
+						<div class="tech-card">
+							<h3>🌐 Web Development</h3>
+							<p>Khám phá các công nghệ web hiện đại như React, Vue, Angular và các framework mới nhất.</p>
+						</div>
+						<div class="tech-card">
+							<h3>🤖 AI & Machine Learning</h3>
+							<p>Tìm hiểu về trí tuệ nhân tạo, machine learning và các ứng dụng thực tế.</p>
+						</div>
+						<div class="tech-card">
+							<h3>☁️ Cloud Computing</h3>
+							<p>Khám phá các dịch vụ cloud như AWS, Azure, Google Cloud và kiến trúc microservices.</p>
+						</div>
+						<div class="tech-card">
+							<h3>📱 Mobile Development</h3>
+							<p>Phát triển ứng dụng di động với React Native, Flutter và các công nghệ cross-platform.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Recent Posts -->
+			<section class="recent-posts">
+				<div class="container">
+					<h2>📝 Bài Viết Gần Đây</h2>
+					<div class="posts-grid">
+						{recentPosts.map((post) => (
+							<article class="post-card">
+								<div class="post-image">
+									<img src={post.data.heroImage} alt={post.data.title} />
+								</div>
+								<div class="post-content">
+									<h3>{post.data.title}</h3>
+									<p>{post.data.description}</p>
+									<div class="post-meta">
+										<span class="post-date">{new Date(post.data.pubDate).toLocaleDateString('vi-VN')}</span>
+									</div>
+									<a href={`/blog/${post.slug}`} class="read-more">Đọc thêm →</a>
+								</div>
+							</article>
+						))}
+					</div>
+					<div class="view-all-posts">
+						<a href="/blog" class="btn-primary">Xem tất cả bài viết</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Call to Action -->
+			<section class="cta-section">
+				<div class="container">
+					<h2>🎯 Bắt đầu học ngay hôm nay</h2>
+					<p>Tham gia cộng đồng lập trình viên và cập nhật những kiến thức công nghệ mới nhất</p>
+					<div class="cta-buttons">
+						<a href="/blog" class="btn-primary">Khám phá bài viết</a>
+						<a href="/about" class="btn-secondary">Về chúng tôi</a>
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
+
+		<style>
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Hero Section */
+			.hero-section {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 80px 0;
+				text-align: center;
+			}
+
+			.hero-section h1 {
+				font-size: 3rem;
+				margin-bottom: 20px;
+				font-weight: bold;
+			}
+
+			.hero-description {
+				font-size: 1.2rem;
+				margin-bottom: 40px;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+				line-height: 1.6;
+			}
+
+			.hero-stats {
+				display: flex;
+				justify-content: center;
+				gap: 40px;
+				margin-top: 40px;
+			}
+
+			.stat {
+				text-align: center;
+			}
+
+			.stat-number {
+				display: block;
+				font-size: 2rem;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+
+			.stat-label {
+				font-size: 0.9rem;
+				opacity: 0.9;
+			}
+
+			/* Tech Introduction */
+			.tech-intro {
+				padding: 80px 0;
+				background: #f8f9fa;
+			}
+
+			.tech-intro h2 {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 50px;
+				color: #333;
+			}
+
+			.tech-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 30px;
+			}
+
+			.tech-card {
+				background: white;
+				padding: 30px;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.tech-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.tech-card h3 {
+				font-size: 1.3rem;
+				margin-bottom: 15px;
+				color: #333;
+			}
+
+			.tech-card p {
+				color: #666;
+				line-height: 1.6;
+			}
+
+			/* Recent Posts */
+			.recent-posts {
+				padding: 80px 0;
+			}
+
+			.recent-posts h2 {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 50px;
+				color: #333;
+			}
+
+			.posts-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+				margin-bottom: 50px;
+			}
+
+			.post-card {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.post-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.post-image img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+			}
+
+			.post-content {
+				padding: 20px;
+			}
+
+			.post-content h3 {
+				font-size: 1.2rem;
+				margin-bottom: 10px;
+				color: #333;
+			}
+
+			.post-content p {
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+
+			.post-meta {
+				margin-bottom: 15px;
+			}
+
+			.post-date {
+				font-size: 0.9rem;
+				color: #999;
+			}
+
+			.read-more {
+				color: #667eea;
+				text-decoration: none;
+				font-weight: 500;
+			}
+
+			.read-more:hover {
+				text-decoration: underline;
+			}
+
+			.view-all-posts {
+				text-align: center;
+			}
+
+			/* CTA Section */
+			.cta-section {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 80px 0;
+				text-align: center;
+			}
+
+			.cta-section h2 {
+				font-size: 2.5rem;
+				margin-bottom: 20px;
+			}
+
+			.cta-section p {
+				font-size: 1.1rem;
+				margin-bottom: 40px;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.cta-buttons {
+				display: flex;
+				gap: 20px;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			/* Buttons */
+			.btn-primary, .btn-secondary {
+				padding: 12px 30px;
+				border-radius: 25px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				display: inline-block;
+			}
+
+			.btn-primary {
+				background: #667eea;
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background: #5a6fd8;
+				transform: translateY(-2px);
+			}
+
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+
+			.btn-secondary:hover {
+				background: white;
+				color: #667eea;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.hero-section h1 {
+					font-size: 2rem;
+				}
+
+				.hero-stats {
+					flex-direction: column;
+					gap: 20px;
+				}
+
+				.tech-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.posts-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
 	</body>
 </html>
