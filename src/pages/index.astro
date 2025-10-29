@@ -30,16 +30,37 @@ const recentPosts = posts
 					</p>
 					<div class="hero-stats">
 						<div class="stat">
-							<span class="stat-number">5+</span>
+							<span class="stat-number">6+</span>
 							<span class="stat-label">Bài viết</span>
 						</div>
 						<div class="stat">
-							<span class="stat-number">3+</span>
+							<span class="stat-number">4+</span>
 							<span class="stat-label">Chủ đề</span>
 						</div>
 						<div class="stat">
 							<span class="stat-number">100%</span>
 							<span class="stat-label">Kiến thức thực tế</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Featured AI Article -->
+			<section class="featured-article">
+				<div class="container">
+					<div class="featured-content">
+						<div class="featured-text">
+							<span class="featured-badge">🔥 Bài viết nổi bật</span>
+							<h2>Xu hướng AI 2024: Những đột phá mới nhất từ các diễn đàn công nghệ</h2>
+							<p>Khám phá những xu hướng AI mới nhất năm 2024 từ Reddit, Hacker News, Medium và các diễn đàn công nghệ hàng đầu. Từ GPT-5, Claude 3.5 đến các ứng dụng thực tế đang hot.</p>
+							<div class="featured-meta">
+								<span class="featured-date">23/12/2024</span>
+								<span class="featured-tags">#AI #MachineLearning #TechTrends</span>
+							</div>
+							<a href="/blog/ai-trends-2024" class="btn-featured">Đọc ngay →</a>
+						</div>
+						<div class="featured-image">
+							<img src="/blog-placeholder-1.jpg" alt="AI Trends 2024" />
 						</div>
 					</div>
 				</div>
@@ -162,6 +183,87 @@ const recentPosts = posts
 			.stat-label {
 				font-size: 0.9rem;
 				opacity: 0.9;
+			}
+
+			/* Featured Article */
+			.featured-article {
+				padding: 60px 0;
+				background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+			}
+
+			.featured-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 50px;
+				align-items: center;
+			}
+
+			.featured-badge {
+				display: inline-block;
+				background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+				color: white;
+				padding: 8px 16px;
+				border-radius: 20px;
+				font-size: 0.9rem;
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+
+			.featured-text h2 {
+				font-size: 2.2rem;
+				margin-bottom: 20px;
+				color: #333;
+				line-height: 1.3;
+			}
+
+			.featured-text p {
+				font-size: 1.1rem;
+				color: #666;
+				line-height: 1.6;
+				margin-bottom: 25px;
+			}
+
+			.featured-meta {
+				display: flex;
+				gap: 20px;
+				margin-bottom: 30px;
+				flex-wrap: wrap;
+			}
+
+			.featured-date {
+				color: #999;
+				font-size: 0.9rem;
+			}
+
+			.featured-tags {
+				color: #667eea;
+				font-size: 0.9rem;
+				font-weight: 500;
+			}
+
+			.btn-featured {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 15px 30px;
+				border-radius: 30px;
+				text-decoration: none;
+				font-weight: 600;
+				display: inline-block;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+			}
+
+			.btn-featured:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+			}
+
+			.featured-image img {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 			}
 
 			/* Tech Introduction */
@@ -350,6 +452,20 @@ const recentPosts = posts
 				.hero-stats {
 					flex-direction: column;
 					gap: 20px;
+				}
+
+				.featured-content {
+					grid-template-columns: 1fr;
+					gap: 30px;
+					text-align: center;
+				}
+
+				.featured-text h2 {
+					font-size: 1.8rem;
+				}
+
+				.featured-meta {
+					justify-content: center;
 				}
 
 				.tech-grid {
