@@ -1,6 +1,6 @@
 # ads.txt file for Google AdSense
 # Replace with your actual AdSense publisher ID
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-1837301386532917, DIRECT, f08c47fec0942fa0
 
 # Additional ad networks (optional)
 # Add other ad networks you work with
