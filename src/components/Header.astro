@@ -124,22 +124,47 @@ import { SITE_TITLE } from '../consts';
 		transform: translateY(-2px);
 	}
 
-	@media (max-width: 720px) {
+	@media (max-width: 768px) {
+		nav {
+			padding: 0.3em 0;
+		}
+
 		.internal-links {
-			gap: 0.5em;
+			gap: 0.3em;
 		}
 
 		nav a {
-			padding: 0.5em;
-			font-size: 0.9em;
+			padding: 0.4em 0.6em;
+			font-size: 0.85em;
 		}
 
 		h2 {
 			font-size: 1em;
 		}
+
+		.social-links {
+			gap: 0.3em;
+		}
+
+		.social-links a {
+			padding: 0.4em;
+		}
 	}
 
 	@media (max-width: 480px) {
+		.internal-links {
+			gap: 0.2em;
+		}
+
+		nav a {
+			padding: 0.3em 0.4em;
+			font-size: 0.8em;
+		}
+
+		h2 {
+			font-size: 0.9em;
+		}
+
 		.social-links {
 			display: none;
 		}
