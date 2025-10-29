@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AdSense from '../components/AdSense.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
@@ -26,7 +27,7 @@ const recentPosts = posts
 					<h1>🚀 Chào mừng đến với Tech Blog</h1>
 					<p class="hero-description">
 						Nơi chia sẻ kiến thức về lập trình, công nghệ và phát triển phần mềm. 
-						Khám phá những xu hướng công nghệ mới nhất và học hỏi từ những kinh nghiệm thực tế.
+						Khám phá những xu hướng công nghệ mới nhất, học hỏi từ kinh nghiệm thực tế và cập nhật tin tức công nghệ hàng ngày.
 					</p>
 					<div class="hero-stats">
 						<div class="stat">
@@ -65,6 +66,13 @@ const recentPosts = posts
 					</div>
 				</div>
 			</section>
+
+			<!-- AdSense Banner -->
+			<AdSense 
+				adSlot="1234567890" 
+				adFormat="horizontal" 
+				className="leaderboard"
+			/>
 
 			<!-- Technology Introduction -->
 			<section class="tech-intro">
@@ -118,14 +126,46 @@ const recentPosts = posts
 				</div>
 			</section>
 
+			<!-- AdSense Rectangle -->
+			<AdSense 
+				adSlot="1234567891" 
+				adFormat="rectangle" 
+				className="rectangle"
+			/>
+
 			<!-- Call to Action -->
 			<section class="cta-section">
 				<div class="container">
 					<h2>🎯 Bắt đầu học ngay hôm nay</h2>
-					<p>Tham gia cộng đồng lập trình viên và cập nhật những kiến thức công nghệ mới nhất</p>
+					<p>Tham gia cộng đồng lập trình viên và cập nhật những kiến thức công nghệ mới nhất. Học lập trình miễn phí, chia sẻ kinh nghiệm và kết nối với các developer khác.</p>
 					<div class="cta-buttons">
 						<a href="/blog" class="btn-primary">Khám phá bài viết</a>
 						<a href="/about" class="btn-secondary">Về chúng tôi</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Additional Content for SEO -->
+			<section class="seo-content">
+				<div class="container">
+					<h2>📚 Tài nguyên học lập trình miễn phí</h2>
+					<div class="resource-grid">
+						<div class="resource-card">
+							<h3>🎓 Khóa học lập trình</h3>
+							<p>Học lập trình từ cơ bản đến nâng cao với các khóa học miễn phí và có phí chất lượng cao.</p>
+						</div>
+						<div class="resource-card">
+							<h3>💡 Tips & Tricks</h3>
+							<p>Những mẹo hay và thủ thuật lập trình giúp bạn code nhanh hơn và hiệu quả hơn.</p>
+						</div>
+						<div class="resource-card">
+							<h3>🔧 Tools & Frameworks</h3>
+							<p>Giới thiệu các công cụ và framework mới nhất giúp phát triển ứng dụng hiện đại.</p>
+						</div>
+						<div class="resource-card">
+							<h3>📖 Ebooks & Tài liệu</h3>
+							<p>Tuyển tập sách điện tử và tài liệu lập trình được cộng đồng đánh giá cao.</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -441,6 +481,48 @@ const recentPosts = posts
 			.btn-secondary:hover {
 				background: white;
 				color: #667eea;
+			}
+
+			/* SEO Content */
+			.seo-content {
+				padding: 80px 0;
+				background: #f8f9fa;
+			}
+
+			.seo-content h2 {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 50px;
+				color: #333;
+			}
+
+			.resource-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 30px;
+			}
+
+			.resource-card {
+				background: white;
+				padding: 30px;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.resource-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.resource-card h3 {
+				font-size: 1.3rem;
+				margin-bottom: 15px;
+				color: #333;
+			}
+
+			.resource-card p {
+				color: #666;
+				line-height: 1.6;
 			}
 
 			/* Responsive */

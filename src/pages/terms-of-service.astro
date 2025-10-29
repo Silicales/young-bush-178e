@@ -1,0 +1,131 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<BaseHead 
+			title={`Điều khoản sử dụng - ${SITE_TITLE}`} 
+			description="Điều khoản và điều kiện sử dụng dịch vụ Tech Blog" 
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="container">
+				<article class="terms-content">
+					<h1>Điều khoản sử dụng</h1>
+					<p><em>Cập nhật lần cuối: 23/12/2024</em></p>
+
+					<h2>1. Chấp nhận điều khoản</h2>
+					<p>Bằng việc truy cập và sử dụng trang web này, bạn đồng ý tuân thủ các điều khoản và điều kiện sau đây.</p>
+
+					<h2>2. Sử dụng nội dung</h2>
+					<p>Nội dung trên trang web này được cung cấp cho mục đích giáo dục và thông tin. Bạn có thể:</p>
+					<ul>
+						<li>Đọc và chia sẻ nội dung</li>
+						<li>Trích dẫn với ghi rõ nguồn</li>
+						<li>Sử dụng cho mục đích học tập</li>
+					</ul>
+
+					<h2>3. Hạn chế sử dụng</h2>
+					<p>Bạn không được:</p>
+					<ul>
+						<li>Sao chép toàn bộ nội dung mà không có sự cho phép</li>
+						<li>Sử dụng nội dung cho mục đích thương mại</li>
+						<li>Xâm phạm bản quyền của tác giả</li>
+					</ul>
+
+					<h2>4. Quảng cáo</h2>
+					<p>Trang web này hiển thị quảng cáo từ Google AdSense. Chúng tôi không chịu trách nhiệm về nội dung quảng cáo.</p>
+
+					<h2>5. Miễn trừ trách nhiệm</h2>
+					<p>Chúng tôi không đảm bảo tính chính xác tuyệt đối của thông tin. Người dùng tự chịu trách nhiệm khi áp dụng thông tin.</p>
+
+					<h2>6. Thay đổi điều khoản</h2>
+					<p>Chúng tôi có quyền thay đổi điều khoản này bất kỳ lúc nào. Việc tiếp tục sử dụng trang web sau khi thay đổi được coi là chấp nhận điều khoản mới.</p>
+
+					<h2>7. Liên hệ</h2>
+					<p>Nếu bạn có câu hỏi về điều khoản sử dụng, vui lòng liên hệ:</p>
+					<ul>
+						<li>Email: legal@techblog.com</li>
+						<li>Địa chỉ: [Địa chỉ của bạn]</li>
+					</ul>
+				</article>
+			</div>
+		</main>
+		<Footer />
+
+		<style>
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 40px 20px;
+			}
+
+			.terms-content {
+				background: white;
+				padding: 40px;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.terms-content h1 {
+				color: #333;
+				margin-bottom: 20px;
+				font-size: 2.5rem;
+			}
+
+			.terms-content h2 {
+				color: #667eea;
+				margin-top: 30px;
+				margin-bottom: 15px;
+				font-size: 1.5rem;
+			}
+
+			.terms-content p {
+				line-height: 1.6;
+				margin-bottom: 15px;
+				color: #666;
+			}
+
+			.terms-content ul {
+				margin-bottom: 20px;
+				padding-left: 20px;
+			}
+
+			.terms-content li {
+				margin-bottom: 8px;
+				line-height: 1.6;
+				color: #666;
+			}
+
+			.terms-content a {
+				color: #667eea;
+				text-decoration: none;
+			}
+
+			.terms-content a:hover {
+				text-decoration: underline;
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					padding: 20px 10px;
+				}
+
+				.terms-content {
+					padding: 20px;
+				}
+
+				.terms-content h1 {
+					font-size: 2rem;
+				}
+			}
+		</style>
+	</body>
+</html>

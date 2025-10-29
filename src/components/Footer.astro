@@ -3,8 +3,18 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
-	<div class="social-links">
+	<div class="footer-content">
+		<div class="footer-info">
+			<p>&copy; {today.getFullYear()} Tech Blog. All rights reserved.</p>
+			<div class="footer-links">
+				<a href="/privacy-policy">Chính sách bảo mật</a>
+				<span>•</span>
+				<a href="/terms-of-service">Điều khoản sử dụng</a>
+				<span>•</span>
+				<a href="/about">Về chúng tôi</a>
+			</div>
+		</div>
+		<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
 			<svg
@@ -37,6 +47,7 @@ const today = new Date();
 				></path></svg
 			>
 		</a>
+		</div>
 	</div>
 </footer>
 <style>
@@ -46,17 +57,65 @@ const today = new Date();
 		color: rgb(var(--gray));
 		text-align: center;
 	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.footer-info p {
+		margin-bottom: 1em;
+	}
+
+	.footer-links {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1em;
+		margin-bottom: 1em;
+		flex-wrap: wrap;
+	}
+
+	.footer-links a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-links a:hover {
+		color: rgb(var(--gray-dark));
+		text-decoration: underline;
+	}
+
+	.footer-links span {
+		color: rgb(var(--gray));
+	}
+
 	.social-links {
 		display: flex;
 		justify-content: center;
 		gap: 1em;
 		margin-top: 1em;
 	}
+
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
+		transition: color 0.3s ease;
 	}
+
 	.social-links a:hover {
 		color: rgb(var(--gray-dark));
+	}
+
+	@media (max-width: 768px) {
+		.footer-links {
+			flex-direction: column;
+			gap: 0.5em;
+		}
+
+		.footer-links span {
+			display: none;
+		}
 	}
 </style>

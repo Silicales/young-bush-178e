@@ -1,0 +1,136 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<BaseHead 
+			title={`Chính sách bảo mật - ${SITE_TITLE}`} 
+			description="Chính sách bảo mật và quyền riêng tư của Tech Blog" 
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="container">
+				<article class="policy-content">
+					<h1>Chính sách bảo mật</h1>
+					<p><em>Cập nhật lần cuối: 23/12/2024</em></p>
+
+					<h2>1. Thông tin chúng tôi thu thập</h2>
+					<p>Chúng tôi có thể thu thập các thông tin sau:</p>
+					<ul>
+						<li>Thông tin cá nhân khi bạn đăng ký tài khoản</li>
+						<li>Dữ liệu duyệt web và cookies</li>
+						<li>Thông tin từ Google Analytics</li>
+						<li>Dữ liệu từ Google AdSense</li>
+					</ul>
+
+					<h2>2. Cách sử dụng thông tin</h2>
+					<p>Chúng tôi sử dụng thông tin để:</p>
+					<ul>
+						<li>Cung cấp và cải thiện dịch vụ</li>
+						<li>Hiển thị quảng cáo phù hợp</li>
+						<li>Phân tích lưu lượng truy cập</li>
+						<li>Gửi thông báo về nội dung mới</li>
+					</ul>
+
+					<h2>3. Google AdSense</h2>
+					<p>Trang web này sử dụng Google AdSense để hiển thị quảng cáo. Google có thể sử dụng cookies để hiển thị quảng cáo dựa trên lịch sử duyệt web của bạn.</p>
+					<p>Bạn có thể tắt cookies của Google AdSense bằng cách truy cập <a href="https://www.google.com/settings/ads" target="_blank">Google Ad Settings</a>.</p>
+
+					<h2>4. Cookies</h2>
+					<p>Chúng tôi sử dụng cookies để:</p>
+					<ul>
+						<li>Ghi nhớ tùy chọn của bạn</li>
+						<li>Phân tích lưu lượng truy cập</li>
+						<li>Hiển thị quảng cáo phù hợp</li>
+					</ul>
+
+					<h2>5. Bảo mật thông tin</h2>
+					<p>Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn bằng các biện pháp bảo mật phù hợp.</p>
+
+					<h2>6. Liên hệ</h2>
+					<p>Nếu bạn có câu hỏi về chính sách bảo mật, vui lòng liên hệ:</p>
+					<ul>
+						<li>Email: privacy@techblog.com</li>
+						<li>Địa chỉ: [Địa chỉ của bạn]</li>
+					</ul>
+				</article>
+			</div>
+		</main>
+		<Footer />
+
+		<style>
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 40px 20px;
+			}
+
+			.policy-content {
+				background: white;
+				padding: 40px;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.policy-content h1 {
+				color: #333;
+				margin-bottom: 20px;
+				font-size: 2.5rem;
+			}
+
+			.policy-content h2 {
+				color: #667eea;
+				margin-top: 30px;
+				margin-bottom: 15px;
+				font-size: 1.5rem;
+			}
+
+			.policy-content p {
+				line-height: 1.6;
+				margin-bottom: 15px;
+				color: #666;
+			}
+
+			.policy-content ul {
+				margin-bottom: 20px;
+				padding-left: 20px;
+			}
+
+			.policy-content li {
+				margin-bottom: 8px;
+				line-height: 1.6;
+				color: #666;
+			}
+
+			.policy-content a {
+				color: #667eea;
+				text-decoration: none;
+			}
+
+			.policy-content a:hover {
+				text-decoration: underline;
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					padding: 20px 10px;
+				}
+
+				.policy-content {
+					padding: 20px;
+				}
+
+				.policy-content h1 {
+					font-size: 2rem;
+				}
+			}
+		</style>
+	</body>
+</html>

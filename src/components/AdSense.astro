@@ -1,0 +1,82 @@
+---
+interface Props {
+  adSlot: string;
+  adFormat?: 'auto' | 'rectangle' | 'vertical' | 'horizontal';
+  adStyle?: 'display' | 'in-article' | 'in-feed';
+  adLayout?: string;
+  adLayoutKey?: string;
+  className?: string;
+}
+
+const { 
+  adSlot, 
+  adFormat = 'auto', 
+  adStyle = 'display',
+  adLayout,
+  adLayoutKey,
+  className = ''
+} = Astro.props;
+---
+
+<div class={`adsense-container ${className}`}>
+  <ins 
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+    data-ad-slot={adSlot}
+    data-ad-format={adFormat}
+    data-ad-style={adStyle}
+    data-ad-layout={adLayout}
+    data-ad-layout-key={adLayoutKey}
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<style>
+  .adsense-container {
+    margin: 20px 0;
+    text-align: center;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .adsense-container.leaderboard {
+    min-height: 90px;
+  }
+
+  .adsense-container.sidebar {
+    min-height: 250px;
+  }
+
+  .adsense-container.in-article {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .adsense-container.mobile-banner {
+    min-height: 50px;
+  }
+
+  .adsense-container.rectangle {
+    min-height: 250px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .adsense-container {
+      margin: 15px 0;
+    }
+    
+    .adsense-container.sidebar {
+      min-height: 200px;
+    }
+  }
+</style>
