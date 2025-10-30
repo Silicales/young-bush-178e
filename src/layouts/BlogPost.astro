@@ -35,6 +35,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: auto;
 				padding: 1em;
 				color: rgb(var(--gray-dark));
+				font-size: 1.05rem;
+				line-height: 1.7;
 			}
 			.title {
 				margin-bottom: 1em;
@@ -52,11 +54,25 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+
+			@media (max-width: 720px) {
+				.prose {
+					font-size: 1.12rem;
+					line-height: 1.8;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.prose {
+					font-size: 1.16rem;
+					line-height: 1.85;
+				}
+			}
 		</style>
 	</head>
 
 	<body>
-		<Header />
+		
 		<main>
 			<article>
 				<div class="hero-image">
