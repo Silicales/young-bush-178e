@@ -33,7 +33,7 @@ const recentPosts = posts
 						<p>Khám phá những xu hướng AI mới nhất năm 2024 từ Reddit, Hacker News, Medium và các diễn đàn công nghệ hàng đầu. Từ GPT-5, Claude 3.5 đến các ứng dụng thực tế đang hot. Trí tuệ nhân tạo đang phát triển với tốc độ chóng mặt, và năm 2024 chứng kiến nhiều đột phá đáng kinh ngạc.</p>
 						<div class="story-meta">
 							<span class="story-date">23/12/2024</span>
-							<a href="/blog/ai-trends-2024" class="read-more">Đọc thêm →</a>
+                            <a href="/blog/ai-trends-2024/" class="read-more">Đọc thêm →</a>
 						</div>
 					</div>
 				</article>
@@ -56,7 +56,7 @@ const recentPosts = posts
 									<p>{post.data.description}</p>
 									<div class="story-meta">
 										<span class="story-date">{new Date(post.data.pubDate).toLocaleDateString('vi-VN')}</span>
-										<a href={`/blog/${post.slug}`} class="read-more">Đọc thêm →</a>
+                                        <a href={`/blog/${post.id}/`} class="read-more">Đọc thêm →</a>
 									</div>
 								</div>
 							</article>
