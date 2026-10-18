@@ -14,13 +14,5 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  redirects: {
-    '/blog/markdown-style-guide': '/blog',
-    '/blog/first-post': '/blog',
-    '/blog/second-post': '/blog',
-    '/blog/third-post': '/blog',
-    '/blog/using-mdx': '/blog',
-    '/blog/ai-cho-tre-em-huong-dan-an-toan-2024': '/blog/huong-dan-ai-an-toan-cho-tre-em-2025',
-  },
   trailingSlash: 'ignore',
 });

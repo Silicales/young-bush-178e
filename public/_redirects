@@ -1,0 +1,19 @@
+# Redirects for removed template posts - both with and without trailing slash
+# Target /blog/ (with trailing slash) to avoid 301->307 chain
+
+/blog/markdown-style-guide /blog/ 301
+/blog/markdown-style-guide/ /blog/ 301
+/blog/first-post /blog/ 301
+/blog/first-post/ /blog/ 301
+/blog/second-post /blog/ 301
+/blog/second-post/ /blog/ 301
+/blog/third-post /blog/ 301
+/blog/third-post/ /blog/ 301
+/blog/using-mdx /blog/ 301
+/blog/using-mdx/ /blog/ 301
+
+# Redirect for merged AI safety post - both with and without trailing slash
+# Target with trailing slash to avoid 301->307 chain
+
+/blog/ai-cho-tre-em-huong-dan-an-toan-2024 /blog/huong-dan-ai-an-toan-cho-tre-em-2025/ 301
+/blog/ai-cho-tre-em-huong-dan-an-toan-2024/ /blog/huong-dan-ai-an-toan-cho-tre-em-2025/ 301
