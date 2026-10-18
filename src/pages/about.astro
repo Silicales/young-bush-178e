@@ -1,25 +1,27 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
+import { SITE_TITLE, AUTHOR_NAME } from "../consts";
 ---
 
 <Layout
-    title="Về Tech Blog"
-    description="Blog chia sẻ kiến thức về lập trình, công nghệ và phát triển phần mềm"
+    title={`Về ${SITE_TITLE}`}
+    description={`${SITE_TITLE} - Blog chia sẻ kiến thức về lập trình, AI và công nghệ cho người Việt`}
     pubDate={new Date("May 18 2025")}
     heroImage="/blog-placeholder-about.jpg"
 >
-    <h2>🚀 Chào mừng đến với Tech Blog</h2>
+    <h2>🚀 Chào mừng đến với {SITE_TITLE}</h2>
     
     <p>
-        Tech Blog được tạo ra với mục tiêu chia sẻ kiến thức về lập trình, công nghệ và phát triển phần mềm. 
-        Chúng tôi tin rằng việc học hỏi và chia sẻ kiến thức là chìa khóa để phát triển trong lĩnh vực công nghệ.
+        Mình là <strong>{AUTHOR_NAME}</strong>, và {SITE_TITLE} là nơi mình chia sẻ kiến thức về lập trình, AI và công nghệ. 
+        Mình tin rằng việc học hỏi và chia sẻ kiến thức là chìa khóa để phát triển trong lĩnh vực công nghệ, 
+        và mong muốn đóng góp vào cộng đồng công nghệ Việt Nam.
     </p>
 
-    <h3>🎯 Mục tiêu của chúng tôi</h3>
+    <h3>🎯 Mục tiêu của blog</h3>
     
     <ul>
         <li><strong>Chia sẻ kiến thức thực tế:</strong> Các bài viết được viết dựa trên kinh nghiệm thực tế và nghiên cứu</li>
-        <li><strong>Cập nhật xu hướng công nghệ:</strong> Theo dõi và phân tích những xu hướng mới nhất trong ngành</li>
+        <li><strong>Cập nhật xu hướng công nghệ:</strong> Theo dõi và phân tích những xu hướng mới nhất, đặc biệt là AI</li>
         <li><strong>Hỗ trợ cộng đồng:</strong> Tạo ra một cộng đồng học hỏi và chia sẻ kiến thức</li>
         <li><strong>Thực hành:</strong> Cung cấp các ví dụ code và hướng dẫn thực hành</li>
     </ul>
@@ -28,52 +30,60 @@ import Layout from "../layouts/BlogPost.astro";
     
     <div class="topics-grid">
         <div class="topic-card">
-            <h4>🌐 Web Development</h4>
-            <p>React, Vue, Angular, Node.js, và các framework web hiện đại</p>
-        </div>
-        <div class="topic-card">
             <h4>🤖 AI & Machine Learning</h4>
-            <p>Trí tuệ nhân tạo, deep learning, và các ứng dụng thực tế</p>
+            <p>Trí tuệ nhân tạo, ứng dụng AI, và hướng dẫn sử dụng AI an toàn</p>
         </div>
         <div class="topic-card">
-            <h4>☁️ Cloud Computing</h4>
-            <p>AWS, Azure, Google Cloud, và kiến trúc microservices</p>
+            <h4>🌐 Web Development</h4>
+            <p>React, Vue, Node.js, Cloudflare Workers và các công nghệ web hiện đại</p>
         </div>
         <div class="topic-card">
-            <h4>📱 Mobile Development</h4>
-            <p>React Native, Flutter, và phát triển ứng dụng di động</p>
+            <h4>☁️ Cloud & Infrastructure</h4>
+            <p>Cloudflare, cloud computing, bảo mật và kiến trúc hệ thống</p>
+        </div>
+        <div class="topic-card">
+            <h4>📚 Kiến thức cơ bản</h4>
+            <p>Hướng dẫn lập trình và công nghệ cho người mới bắt đầu</p>
         </div>
     </div>
 
-    <h3>👥 Đội ngũ</h3>
+    <h3>👤 Về tác giả</h3>
     
     <p>
-        Chúng tôi là một nhóm các lập trình viên và chuyên gia công nghệ có đam mê với việc học hỏi và chia sẻ. 
-        Mỗi thành viên đều có kinh nghiệm trong các lĩnh vực khác nhau, từ frontend development đến AI/ML.
+        <em>[Phần này cần được bổ sung bởi {AUTHOR_NAME}. Hãy thêm thông tin về bản thân: 
+        nền tảng giáo dục, kinh nghiệm làm việc, lĩnh vực chuyên môn, các dự án đã tham gia, 
+        và những điều bạn muốn chia sẻ với độc giả.]</em>
+    </p>
+
+    <p>
+        Bạn có thể tìm hiểu thêm về tác giả tại <a href="/author/hieu-cao">trang tác giả</a>.
     </p>
 
     <h3>📧 Liên hệ</h3>
     
     <p>
-        Bạn có câu hỏi, góp ý hoặc muốn đóng góp bài viết? Hãy liên hệ với chúng tôi:
+        Bạn có câu hỏi, góp ý hoặc muốn đóng góp bài viết? Hãy liên hệ qua:
     </p>
     
     <ul>
-        <li>📧 Email: contact@techblog.com</li>
-        <li>🐙 GitHub: <a href="https://github.com/techblog">github.com/techblog</a></li>
-        <li>🐦 Twitter: <a href="https://twitter.com/techblog">@techblog</a></li>
+        <li>📧 Email liên hệ: <a href="mailto:contact@silicales.com">contact@silicales.com</a></li>
+        <li>⚙️ Email quản trị: <a href="mailto:admin@silicales.com">admin@silicales.com</a></li>
     </ul>
+
+    <p>
+        Xem thêm thông tin liên hệ tại <a href="/contact">trang liên hệ</a>.
+    </p>
 
     <h3>🤝 Đóng góp</h3>
     
     <p>
-        Chúng tôi luôn chào đón những đóng góp từ cộng đồng. Nếu bạn muốn viết bài hoặc đóng góp ý tưởng, 
-        hãy liên hệ với chúng tôi. Mọi đóng góp đều được đánh giá cao và ghi nhận.
+        Mình luôn chào đón những đóng góp từ cộng đồng. Nếu bạn muốn viết bài hoặc đóng góp ý tưởng, 
+        hãy liên hệ qua email. Mọi đóng góp đều được đánh giá cao và ghi nhận.
     </p>
 
     <div class="cta-section">
         <h3>🎯 Bắt đầu khám phá</h3>
-        <p>Hãy bắt đầu hành trình học hỏi cùng chúng tôi ngay hôm nay!</p>
+        <p>Hãy bắt đầu hành trình học hỏi ngay hôm nay!</p>
         <a href="/blog" class="btn-primary">Xem tất cả bài viết</a>
     </div>
 
