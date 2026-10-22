@@ -655,7 +655,7 @@ Trong bài viết này, bạn đã học cách:
 ✅ Xử lý lỗi rate limit, context length  
 ✅ Ước tính chi phí token  
 
-Bước tiếp theo, bạn có thể tìm hiểu về [RAG (chatbot hỏi đáp tài liệu)](#) hoặc [tự động hóa Python](#) để tích hợp AI vào workflow.
+Bước tiếp theo, bạn có thể tìm hiểu về [chạy AI local với Ollama (hữu ích cho RAG)](/blog/chay-ai-tren-may-ca-nhan-voi-ollama/) hoặc [tự động hóa Python / lộ trình học](/blog/lo-trinh-tu-hoc-python-2026/) để tích hợp AI vào workflow.
 
 Chúc bạn thành công!
 

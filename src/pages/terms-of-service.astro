@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, CONTACT_EMAIL_ADMIN } from '../consts';
 ---
 
 <!doctype html>
@@ -50,10 +50,10 @@ import { SITE_TITLE } from '../consts';
 					<p>Chúng tôi có quyền thay đổi điều khoản này bất kỳ lúc nào. Việc tiếp tục sử dụng trang web sau khi thay đổi được coi là chấp nhận điều khoản mới.</p>
 
 					<h2>7. Liên hệ</h2>
-					<p>Nếu bạn có câu hỏi về điều khoản sử dụng, vui lòng liên hệ:</p>
+					<p>Nếu bạn có câu hỏi về điều khoản sử dụng, vui lòng liên hệ qua email:</p>
 					<ul>
-						<li>Email: legal@techblog.com</li>
-						<li>Địa chỉ: [Địa chỉ của bạn]</li>
+						<li>Email: <a href={`mailto:${CONTACT_EMAIL_ADMIN}`}>{CONTACT_EMAIL_ADMIN}</a></li>
+						<li>Hoặc qua <a href="/contact">trang Liên hệ</a></li>
 					</ul>
 				</article>
 			</div>

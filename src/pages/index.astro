@@ -6,11 +6,37 @@ import AdSense from '../components/AdSense.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
-// Lấy 3 bài viết gần đây nhất
+/** Topic label from post id — not a rotating fake list */
+function categoryForPost(id: string): { label: string; css: string } {
+	if (
+		id.includes('ollama') ||
+		id.includes('chatgpt') ||
+		id.includes('gemini') ||
+		id.includes('ai-trends') ||
+		id.includes('huong-dan-ai') ||
+		id.includes('ai-an-toan')
+	) {
+		return { label: 'AI', css: 'ai' };
+	}
+	if (id.includes('cloud') || id.includes('security') || id.includes('bao-mat')) {
+		return { label: 'Bảo mật', css: 'cloud' };
+	}
+	if (id.includes('giam-sat') || id.includes('telegram')) {
+		return { label: 'Ops', css: 'devops' };
+	}
+	if (id.includes('python') || id.includes('lo-trinh')) {
+		return { label: 'Python', css: 'webdev' };
+	}
+	return { label: 'Công nghệ', css: 'data' };
+}
+
 const posts = await getCollection('blog');
-const recentPosts = posts
-	.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-	.slice(0, 3);
+const sortedPosts = posts.sort(
+	(a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
+const featuredPost = sortedPosts[0];
+const recentPosts = sortedPosts.slice(1, 4);
+const featuredCategory = featuredPost ? categoryForPost(featuredPost.id) : null;
 ---
 
 <!doctype html>
@@ -22,34 +48,33 @@ const recentPosts = posts
     	
 		<main class="stories-layout">
 			<div class="container">
-				<!-- Featured Story -->
-				<article class="featured-story">
-					<div class="story-image">
-						<img src="/blog-placeholder-1.jpg" alt="AI Trends 2024" />
-						<div class="category-tag ai-tag">AI</div>
-					</div>
-					<div class="story-content">
-						<h1>XU HƯỚNG AI 2024: NHỮNG ĐỘT PHÁ MỚI NHẤT TỪ CÁC DIỄN ĐÀN CÔNG NGHỆ</h1>
-						<p>Khám phá những xu hướng AI mới nhất năm 2024 từ Reddit, Hacker News, Medium và các diễn đàn công nghệ hàng đầu. Từ GPT-5, Claude 3.5 đến các ứng dụng thực tế đang hot. Trí tuệ nhân tạo đang phát triển với tốc độ chóng mặt, và năm 2024 chứng kiến nhiều đột phá đáng kinh ngạc.</p>
-						<div class="story-meta">
-							<span class="story-date">23/12/2024</span>
-                            <a href="/blog/ai-trends-2024/" class="read-more">Đọc thêm →</a>
+				{featuredPost && featuredCategory && (
+					<article class="featured-story">
+						<div class="story-image">
+							<img src={featuredPost.data.heroImage ?? '/blog-placeholder-1.jpg'} alt={featuredPost.data.title} />
+							<div class={`category-tag ${featuredCategory.css}-tag`}>{featuredCategory.label}</div>
 						</div>
-					</div>
-				</article>
+						<div class="story-content">
+							<h1>{featuredPost.data.title.toUpperCase()}</h1>
+							<p>{featuredPost.data.description}</p>
+							<div class="story-meta">
+								<span class="story-date">{new Date(featuredPost.data.pubDate).toLocaleDateString('vi-VN')}</span>
+								<a href={`/blog/${featuredPost.id}/`} class="read-more">Đọc thêm →</a>
+							</div>
+						</div>
+					</article>
+				)}
 
 				<!-- Stories Grid -->
 				<div class="stories-grid">
-					{recentPosts.map((post, index) => {
-						const categories = ['Web Dev', 'AI/ML', 'Cloud', 'Mobile', 'DevOps', 'Data'];
-						const category = categories[index % categories.length];
-						const categoryClass = category.toLowerCase().replace(/[^a-z0-9]/g, '');
+					{recentPosts.map((post) => {
+						const category = categoryForPost(post.id);
 						
 						return (
 							<article class="story-card">
 								<div class="story-image">
 									<img src={post.data.heroImage} alt={post.data.title} />
-									<div class={`category-tag ${categoryClass}-tag`}>{category}</div>
+									<div class={`category-tag ${category.css}-tag`}>{category.label}</div>
 								</div>
 								<div class="story-content">
 									<h3>{post.data.title.toUpperCase()}</h3>
