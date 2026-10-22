@@ -320,7 +320,7 @@ Lộ trình này dành cho người **hoàn toàn mới**, không cần kiến t
 - CI/CD với GitHub Actions
 
 **Dự án mẫu:**
-- [Script giám sát ổ đĩa gửi Telegram](#) (xem bài hướng dẫn)
+- [Script giám sát ổ đĩa gửi Telegram](/blog/viet-script-python-giam-sat-o-dia-telegram/) (xem bài hướng dẫn)
 - Auto login và submit form trên website
 - Backup database tự động hằng ngày
 - Deploy ứng dụng Python lên VPS
@@ -603,7 +603,7 @@ Học Python không khó nếu bạn có lộ trình rõ ràng và kiên trì th
 Các bài viết liên quan để tiếp tục hành trình:
 - [Chạy AI trên máy cá nhân với Ollama](/blog/chay-ai-tren-may-ca-nhan-voi-ollama/)
 - [Gọi API ChatGPT và Gemini bằng Python](/blog/goi-api-chatgpt-gemini-bang-python/)
-- [Viết script Python giám sát ổ đĩa và gửi cảnh báo qua Telegram](#)
+- [Viết script Python giám sát ổ đĩa và gửi cảnh báo qua Telegram](/blog/viet-script-python-giam-sat-o-dia-telegram/)
 
 Chúc bạn thành công trên con đường trở thành Python developer!
 

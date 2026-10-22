@@ -780,7 +780,7 @@ Trong bài viết này, bạn đã học cách:
 ✅ Tự động chạy định kỳ bằng cron/Task Scheduler  
 ✅ Xử lý lỗi và tối ưu script  
 
-Script này là nền tảng để bạn xây dựng hệ thống giám sát phức tạp hơn. Bước tiếp theo, bạn có thể tích hợp thêm giám sát CPU, RAM, network, hoặc kết hợp với [Prometheus và Grafana](#).
+Script này là nền tảng để bạn xây dựng hệ thống giám sát phức tạp hơn. Bước tiếp theo, bạn có thể tích hợp thêm giám sát CPU, RAM, network, hoặc kết hợp với [Prometheus](https://prometheus.io/docs/introduction/overview/) và [Grafana](https://grafana.com/docs/).
 
 Chúc bạn thành công!
 
